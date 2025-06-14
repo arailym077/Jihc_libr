@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JIHC Library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="./jihc-logo-png-v3.png" alt="JIHC Logo" style="width: 60px;" />
+    </div>
+    <nav>
+      <a href="index.html" data-i18n="home">Home</a>
+      <a href="My_books.html" data-i18n="myBooks">My Books</a>
+      <select class="language-select">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="kz">Қазақша</option>
+      </select>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1 data-i18n="title">Online Library</h1>
+      <p data-i18n="desc">Discover thousands of books...</p>
+      <button data-i18n="learnMore" class="learn-more" id="learnMoreBtn" onclick="scrollToLibrary()">Learn More</button>
+    </div>
+    <div class="hero-img">
+      <img src="./character-people-read-book-png (1).webp" alt="Reading Woman" width="450" />
+    </div>
+  </section>
+
+  <div class="search-bar" id="searchBar">
+    <input type="text" id="bookInput" placeholder="Book Name" style="padding: 8px; width: 250px;" />
+    <button onclick="searchBooks()" style="padding: 8px 12px; cursor: pointer;" data-i18n="search">Search</button>
+  </div>
+
+  <div id="searchResults" style="padding: 20px; display: flex; flex-wrap: wrap; gap: 20px;"></div>
+
+  <section class="book-types">
+    <h2 data-i18n="bookTypes">Book Types</h2>
+    <div class="types">
+      <a data-i18n="kazakh" class="type" href="kazakh.html">Kazakh</a>
+      <a data-i18n="turkish" class="type" href="russian.html">Russian</a>
+      <a data-i18n="english" class="type" href="english.html">English</a>
+    </div>
+  </section>
+
+  <section class="deals" id="our-library">
+    <div class="deal-carousel">
+      <img src="./IMG_9580.JPG" class="carousel-img active" alt="Book Deal 1" />
+      <img src="./IMG_9578.JPG" class="carousel-img" alt="Book Deal 2" />
+      <img src="./IMAGE 2025-06-06 21:34:30.jpg" class="carousel-img" alt="Book Deal 3" />
+    </div>
+    <div class="deals-text">
+      <h2 data-i18n="library">Our library</h2>
+      <p data-i18n="ourd">Our library is equipped with new books, study areas, and iMacs. In the online library, you can access and read books conveniently. All conditions have been created for the benefit of students.</p>
+    </div>
+  </section>
+
+  <section class="popular-books">
+    <h2 data-i18n="popular">Popular Books</h2>
+    <div class="slider-wrapper">
+      <div class="book-slider" id="bookSlider"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section logo">
+        <img src="./jihc-logo-png-v3(white).png" alt="Logo" />
+      </div>
+      <div class="footer-section contact">
+        <h4 data-i18n="contact">Contact us</h4>
+        <p class="phone-link" data-phone="+77776201751">8 777 620 1751</p>
+        <p class="phone-link" data-phone="+77087520557">8 708 752 0557</p>
+      </div>
+      <div class="footer-section address">
+        <h4 data-i18n="address">Address</h4>
+        <p data-i18n="puwkina">Pushkina, 154</p>
+      </div>
+      <div class="footer-section social-media">
+        <h4 data-i18n="social">Social media</h4>
+        <p>
+          <a href="https://www.instagram.com/jihc.kz" target="_blank" class="social-link">
+            <img src="./instagram-new.png" alt="Instagram" class="social-icon" />
+            <span data-i18n="insta">Instagram</span>
+          </a>
+        </p>
+        <p>
+          <a href="https://jihc.edu.kz/" target="_blank" class="social-link">
+            <img src="./45-455131_white-internet-icon-png-clipart-library-library-internet.png" alt="Website" class="social-icon" />
+            <span data-i18n="web">Website</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

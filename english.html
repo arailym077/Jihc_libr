@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Library</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 0;
+    }
+
+    header {
+      width: 100%;
+      background: #f8f4ed;
+      padding: 20px 0;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo img {
+      width: 60px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #f46a29;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .language-select {
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      color: #333;
+      margin-left: 10px;
+      padding: 5px 20px 5px 5px;
+      cursor: pointer;
+      font-weight: 500;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' stroke='%23666' stroke-width='15' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+      background-size: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+      color: #222;
+    }
+
+    .book-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 0 20px 40px;
+    }
+
+    .book-card {
+      background: #fff;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .book-info {
+      padding: 15px;
+    }
+
+    .book-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .book-author {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .book-description {
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .book-link {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #f55b0a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .book-link:hover {
+      background: #218838;
+    }
+
+    footer.footer {
+      background-color: #002f67;
+      color: white;
+      padding: 40px 20px;
+      width: 100%;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 180px;
+      margin: 10px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .footer-section p {
+      margin: 5px 0;
+    }
+
+    .footer-section.logo img {
+      max-height: 70px;
+    }
+
+    .social-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: #f55b0a;
+      text-decoration: underline;
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+      object-fit: contain;
+    }
+
+    .phone-link {
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    .phone-link:hover {
+      color: #f55b0a;
+    }
+
+    .add-favorite-btn {
+      background-color: #002f67;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .add-favorite-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="./jihc-logo-png-v3.png" alt="JIHC Logo" />
+      </div>
+      <nav>
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="My_books.html" data-i18n="myBooks">My Books</a>
+        <select class="language-select" id="languageSelect">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+          <option value="kz">Қазақша</option>
+        </select>
+      </nav>
+    </div>
+  </header>
+
+  <h1 data-i18n="englishBooks">English books</h1>
+  <div class="book-container" id="bookContainer"></div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section logo">
+        <img src="./jihc-logo-png-v3(white).png" alt="Logo" />
+      </div>
+      <div class="footer-section contact">
+        <h4 data-i18n="contact">Contact us</h4>
+        <p class="phone-link" data-phone="+77776201751">8 777 620 1751</p>
+        <p class="phone-link" data-phone="+77087520557">8 708 752 0557</p>
+      </div>
+      <div class="footer-section address">
+        <h4 data-i18n="address">Address</h4>
+        <p data-i18n="pushkina">Pushkina, 154</p>
+      </div>
+      <div class="footer-section social-media">
+        <h4 data-i18n="social">Social media</h4>
+        <p>
+          <a href="https://www.instagram.com/jihc.kz" target="_blank" class="social-link">
+            <img src="./instagram-new.png" alt="Instagram" class="social-icon" />
+            <span data-i18n="insta">Instagram</span>
+          </a>
+        </p>
+        <p>
+          <a href="https://jihc.edu.kz/" target="_blank" class="social-link">
+            <img src="./45-455131_white-internet-icon-png-clipart-library-library-internet.png" alt="Website" class="social-icon" />
+            <span data-i18n="web">Website</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Language translations
+    const translations = {
+      en: {
+        home: "Home",
+        myBooks: "My Books",
+        englishBooks: "English books",
+        contact: "Contact us",
+        address: "Address",
+        pushkina: "Pushkina, 154",
+        social: "Social media",
+        insta: "Instagram",
+        web: "Website",
+        addToFavorites: "Add to Favorites",
+        readPDF: "Read PDF",
+        addedToFavorites: "Added to favorites!",
+        alreadyInFavorites: "This book is already in your favorites!",
+        errorLoading: "Error loading data. Please try again later."
+      },
+      ru: {
+        home: "Главная",
+        myBooks: "Мои книги",
+        englishBooks: "Английские книги",
+        contact: "Свяжитесь с нами",
+        address: "Адрес",
+        pushkina: "Пушкина, 154",
+        social: "Социальные сети",
+        insta: "Инстаграм",
+        web: "Вебсайт",
+        addToFavorites: "Добавить в избранное",
+        readPDF: "Читать PDF",
+        addedToFavorites: "Добавлено в избранное!",
+        alreadyInFavorites: "Эта книга уже в вашем избранном!",
+        errorLoading: "Ошибка загрузки данных. Пожалуйста, попробуйте позже."
+      },
+      kz: {
+        home: "Басты бет",
+        myBooks: "Менің кітаптарым",
+        englishBooks: "Ағылшын кітаптары",
+        contact: "Бізге хабарласыңыз",
+        address: "Мекен-жай",
+        pushkina: "Пушкин, 154",
+        social: "Әлеуметтік желілер",
+        insta: "Инстаграм",
+        web: "Вебсайт",
+        addToFavorites: "Таңдаулыларға қосу",
+        readPDF: "PDF оқу",
+        addedToFavorites: "Таңдаулыларға қосылды!",
+        alreadyInFavorites: "Бұл кітап сіздің таңдаулыларыңызда бар!",
+        errorLoading: "Деректерді жүктеу кезінде қате пайда болды. Кейінірек қайталап көріңіз."
+      }
+    };
+
+    // Phone links functionality
+    const phoneLinks = document.querySelectorAll('.phone-link');
+    phoneLinks.forEach(el => {
+      el.addEventListener('click', () => {
+        const phone = el.getAttribute('data-phone');
+        const cleanNumber = phone.replace(/\D/g, '');
+        const whatsappURL = `https://wa.me/${cleanNumber}`;
+        window.open(whatsappURL, '_blank');
+      });
+    });
+
+    // Language switcher
+    const languageSelect = document.getElementById('languageSelect');
+    languageSelect.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      document.documentElement.lang = lang;
+      updateTextContent(lang);
+      loadBooks(lang); // Reload books with new language
+    });
+
+    function updateTextContent(lang) {
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    // Load books data
+    const sheetURL = "https://script.google.com/macros/s/AKfycbzTXjg-_FiougTZ_CCTo-4xTCe91JiqjiD2Owz4IXcm7-o1VY0GMu1iF5J9g66dl6rQJg/exec";
+
+    function loadBooks(lang = 'en') {
+      fetch(sheetURL)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json();
+        })
+        .then(data => {
+          const container = document.getElementById("bookContainer");
+          if (!container) {
+            throw new Error('Container element not found');
+          }
+
+          // Clear previous books
+          container.innerHTML = '';
+          
+          data.forEach(book => {
+            const card = document.createElement("div");
+            card.className = "book-card";
+
+            // Handle PDF link
+            let pdfLink = book.pdf || '';
+            if (pdfLink) {
+              // Add https:// if not present and doesn't start with http://
+              if (!pdfLink.startsWith('http://') && !pdfLink.startsWith('https://')) {
+                pdfLink = 'https://' + pdfLink;
+              }
+            }
+
+            const bookObject = {
+              image: book.image || '',
+              title: book.title || '',
+              author: book.author || '',
+              description: book.description || '',
+              pdf: pdfLink
+            };
+
+            card.innerHTML = `
+              <img src="${bookObject.image}" alt="Book cover" onerror="this.style.display='none'">
+              <div class="book-info">
+                <div class="book-title">${bookObject.title}</div>
+                <div class="book-author">${bookObject.author}</div>
+                <div class="book-description">${bookObject.description}</div>
+                ${pdfLink ? `<a class="book-link" href="${pdfLink}" target="_blank">${translations[lang].readPDF}</a>` : ''}
+                <button class="add-favorite-btn">${translations[lang].addToFavorites}</button>
+              </div>
+            `;
+
+            // Add to favorites button handler
+            card.querySelector(".add-favorite-btn").addEventListener("click", () => {
+              let favorites = JSON.parse(localStorage.getItem("favoriteBooks")) || [];
+              if (!favorites.find(b => b.title === bookObject.title)) {
+                favorites.push(bookObject);
+                localStorage.setItem("favoriteBooks", JSON.stringify(favorites));
+                alert(translations[lang].addedToFavorites);
+              } else {
+                alert(translations[lang].alreadyInFavorites);
+              }
+            });
+
+            container.appendChild(card);
+          });
+        })
+        .catch(err => {
+          const container = document.getElementById("bookContainer");
+          if (container) {
+            container.innerHTML = `<p>${translations[lang].errorLoading}</p>`;
+          }
+          console.error("Error:", err);
+        });
+    }
+
+    // Initial load
+    loadBooks();
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{
+  "home": {
+    "en": "Home",
+    "ru": "Главная",
+    "kz": "Басты бет"
+  },
+  "myBooks": {
+    "en": "My Books",
+    "ru": "Мои книги",
+    "kz": "Менің кітаптарым"
+  },
+  "title": {
+    "en": "Online Library",
+    "ru": "Онлайн библиотека",
+    "kz": "Онлайн кітапхана"
+  },
+  "desc": {
+    "en": "Discover thousands of books, journals, and learning resources right at your fingertips.",
+    "ru": "Откройте для себя тысячи книг, журналов и учебных ресурсов в одном месте.",
+    "kz": "Мыңдаған кітаптарды, журналдарды және оқу ресурстарын оңай табыңыз."
+  },
+  "learnMore": {
+    "en": "Learn More",
+    "ru": "Узнать больше",
+    "kz": "Көбірек білу"
+  },
+  "search": {
+    "en": "Search",
+    "ru": "Поиск",
+    "kz": "Іздеу"
+  },
+  "bookTypes": {
+    "en": "Book Types",
+    "ru": "Типы книг",
+    "kz": "Кітап түрлері"
+  },
+  "kazakh": {
+    "en": "Kazakh",
+    "ru": "Казахский",
+    "kz": "Қазақша"
+  },
+  "turkish": {
+    "en": "Turkish",
+    "ru": "Турецкий",
+    "kz": "Түрікше"
+  },
+  "english": {
+    "en": "English",
+    "ru": "Английский",
+    "kz": "Ағылшынша"
+  },
+"library": {
+  "en": "Our Library",
+  "ru": "Наша библиотека",
+  "kz": "Біздің кітапхана"
+},
+"ourd": {
+  "en": "Our library is equipped with new books, study areas, and iMacs. In the online library, you can access and read books conveniently. All conditions have been created for the benefit of students.",
+  "ru": "Наша библиотека оснащена новыми книгами, учебными зонами и iMac. В онлайн-библиотеке вы можете удобно получить доступ к книгам и читать их. Все условия созданы для удобства студентов.",
+  "kz": "Біздің кітапхана жаңа кітаптармен, оқу аймақтарымен және iMac компьютерлерімен жабдықталған. Онлайн кітапханада сіз кітаптарға қол жеткізіп, ыңғайлы түрде оқи аласыз. Барлық жағдайлар студенттердің игілігі үшін жасалған."
+},
+"popular": {
+  "en": "Popular Books",
+  "ru": "Популярные книги",
+  "kz": "Танымал кітаптар"
+
+},
+"contact": { 
+  "en": "Contact us",
+  "ru": "Свяжитесь с нами",
+  "kz": "Бізбен байланысыңыз"
+},
+"address": {
+  "en": "Address",
+  "ru": "Адрес",
+  "kz": "Мекенжай"
+},
+"puwkina": {
+  "en": "Pushkina, 154",
+  "ru": "Pushkina, 154",
+  "kz": "Pushkina, 154"
+},
+"social": {
+  "en": "Social media",
+  "ru": "Социальные сети",
+  "kz": "Әлеуметтік желі"
+},
+"insta": {
+  "en": "Instagram",
+  "ru": "Инстаграм",
+  "kz": "Инстаграм"
+},
+"web":{
+  "en": "Website",
+  "ru": "Веб-сайт",
+  "kz": "Веб-сайт"
+}
+
+}
+
+
+
+
+
