@@ -168,7 +168,7 @@ const translations = {
     search: "Search",
     bookTypes: "Book Types",
     kazakh: "Kazakh",
-    turkish: "Turkish",
+    turkish: "Russian",
     english: "English",
     library: "Our library",
     ourd: "Our library is equipped with new books, study areas, and iMacs. In the online library, you can access and read books conveniently. All conditions have been created for the benefit of students.",
